@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/option3"
+        android:title="Simboliu skaicius siame tekste123" />
+
+    <item android:id="@+id/option4"
+        android:title="Simboliu vardinimas po viena123" />
+
+</menu>
