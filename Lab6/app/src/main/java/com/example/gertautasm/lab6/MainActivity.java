@@ -4,6 +4,7 @@ import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -43,19 +44,34 @@ public class MainActivity extends AppCompatActivity {
         super.onCreateContextMenu(menu, v, menuInfo);
     }
 
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.skaiciuoti:
+                return (true);
+            case R.id.exit:
+                finish();
+                return(true);
+        }
+        return(super.onOptionsItemSelected(item));
+    }
+
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         int selectedItemId = item.getItemId();
         switch (selectedItemId) {
             case R.id.option1:
-                    Count1();
+                Count1();
                 break;
             case R.id.option2:
-                skaicius=0;
                 t.start();
                 break;
             case R.id.option3:
-                    Count2();
+                Count2();
                 break;
             case  R.id.option4:
 

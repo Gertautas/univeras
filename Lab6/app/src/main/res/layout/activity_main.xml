@@ -12,16 +12,17 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Paprastas tekstasD" />
+        android:text="Paprastas tekstas" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:text="TextView" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="match_parent"
+        android:layout_width="132dp"
         android:layout_height="wrap_content" />
 </LinearLayout>

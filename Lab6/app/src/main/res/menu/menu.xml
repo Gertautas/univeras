@@ -5,6 +5,7 @@
         android:title="Simboliu skaicius siame tekste" />
 
     <item android:id="@+id/option2"
-        android:title="Simboliu vardinimas po viena" />
+        android:title="Simboliu vardinimas po viena"
+        />
 
 </menu>
