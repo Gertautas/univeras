@@ -22,19 +22,43 @@ import android.widget.Toast;
 
 public class Main2Activity extends AppCompatActivity {
 
+    int mnotificationId = 001;
+    String CHANNEL_ID = "my_channel_01";
+
     private BroadcastReceiver battery = new BroadcastReceiver() {
-        @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
         @Override
         public void onReceive(Context context, Intent intent) {
-            int level = intent.getIntExtra("level",0);
+            int level = intent.getIntExtra("level", 0);
             ProgressBar pb = (ProgressBar) findViewById(R.id.baras);
             pb.setProgress(level);
             TextView textView = (TextView) findViewById(R.id.tekstas);
             textView.setText("Battery level: " + Integer.toString(level) + "%");
-            if(level< 25 & level >= 16){
-                Toast.makeText(context,"Baterija senka",Toast.LENGTH_LONG).show();
-            }else if(level <= 15){
-                createNotification();
+            if (level < 25 & level >= 16) {
+                Toast.makeText(context, "Baterija senka", Toast.LENGTH_LONG).show();
+            } else if (level <= 15) {
+                
+                Notification.Builder not;
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    not = new Notification.Builder(context,"text");
+                } else {
+                    not = new Notification.Builder(context);
+                }
+
+                not.setSmallIcon(android.R.drawable.stat_notify_error);
+                not.setAutoCancel(true);
+                not.setContentTitle("Baterija miršta");
+                not.setContentText("Spausti čia!");
+
+                Intent intents = new Intent(context, Main2Activity.class);
+
+                PendingIntent pi = PendingIntent.getActivity(context,1,intents, PendingIntent.FLAG_CANCEL_CURRENT);
+                not.setContentIntent(pi);
+
+                NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    nm.notify(1, not.build());
+                }
             }
 
         }
@@ -45,19 +69,37 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        registerReceiver(battery,new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        registerReceiver(battery, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
     }
-    public void createNotification(){
-      NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
-              .setSmallIcon(R.drawable.icon)
-              .setContentTitle("Low Battery")
-              .setContentText("Your batter level is below 15% ");
 
-      Intent intent = new Intent(this,Main2Activity.class);
-      PendingIntent content = PendingIntent.getActivity(this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
-      builder.setContentIntent(content);
+    public void sendNotification() {
 
-      NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-      manager.notify(0,builder.build());
     }
 }
+
+
+//
+//    public void onReceive(Context context, Intent intent) {
+//        Notification.Builder not;
+//
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//            not = new Notification.Builder(context,"text");
+//        } else {
+//            not = new Notification.Builder(context);
+//        }
+//
+//        not.setSmallIcon(android.R.drawable.stat_notify_error);
+//        not.setAutoCancel(true);
+//        not.setContentTitle("Baterija miršta");
+//        not.setContentText("Spausti čia!");
+//
+//        Intent intents = new Intent(context, MainActivity.class);
+//
+//        PendingIntent pi = PendingIntent.getActivity(context,1,intents, PendingIntent.FLAG_CANCEL_CURRENT);
+//        not.setContentIntent(pi);
+//
+//        NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//            nm.notify(1, not.build());
+//        }
+//    }
