@@ -24,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     NotificationHelper helper;
     Button go;
     int level;
+    Intent resultIntent;
+    PendingIntent pendingIntent123;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
 
         helper = new NotificationHelper(this);
         go = (Button) findViewById(R.id.pradeti);
+        resultIntent = new Intent(this,Main2Activity.class);
+        pendingIntent123 = PendingIntent.getActivity(this,0,resultIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+
 
         go.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,12 +54,14 @@ public class MainActivity extends AppCompatActivity {
             if(level< 25 & level >= 16){
                 Toast.makeText(context,"Baterija senka",Toast.LENGTH_LONG).show();
             }else if(level <= 15){
-                Notification.Builder builder = helper.getNotificaion();
+
+                Notification.Builder builder = helper.getNotificaion().setContentIntent(pendingIntent123);
                 helper.getManager().notify(new Random().nextInt(),builder.build());
 
             }
         }
     };
+
     public void pb(Intent intent){
         level = intent.getIntExtra("level",0);
         ProgressBar pb = (ProgressBar) findViewById(R.id.baras);

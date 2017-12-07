@@ -2,8 +2,10 @@ package com.example.gertautasm.lab7;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.Intent;
 import android.graphics.Color;
 
 /**
@@ -15,6 +17,9 @@ public class NotificationHelper extends ContextWrapper{
     private static final String CHANNEL_ID =  "com.example.gertautasm.lab7";
     private static final  String CHANNEL_NAME ="Kanalas";
     private NotificationManager manager;
+
+    Intent resultIntent = new Intent(this,Main2Activity.class);
+    PendingIntent pendingIntent123 = PendingIntent.getActivity(this,0,resultIntent,PendingIntent.FLAG_UPDATE_CURRENT);
     public NotificationHelper(Context base) {
         super(base);
         createChannels();
@@ -41,6 +46,8 @@ public class NotificationHelper extends ContextWrapper{
                 .setContentTitle("Your battery is lower than 15%. Please charge")
                 .setSmallIcon(R.mipmap.ic_launcher_round)
                 .setAutoCancel(true);
+
+
     }
 }
 
