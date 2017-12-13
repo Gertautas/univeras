@@ -1,5 +1,5 @@
 ANDROID 
-	5lab,8lab,9lab, 1kolis,2kolis
+	5lab,9lab, 1kolis,2kolis
 
 Testavimas
 
