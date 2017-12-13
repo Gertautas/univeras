@@ -1,10 +1,6 @@
 ANDROID 
 	5lab,9lab, 1kolis,2kolis
 
-Testavimas
-
-	1,2,3 darbai (1 ir 2 padaryti, nzn ar gerai)
-
 Informatikos teise
 
 	kolis
