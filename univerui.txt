@@ -7,11 +7,7 @@ Informatikos teise
 
 Informacines sistemos programu kurimas
 
-	reikia nueiti
-
-Specialybes kalbos kultura
-
-	1 darbas, 2 koliai
+	darbas + dokumentacija
 
 Informacijos teorja
 
