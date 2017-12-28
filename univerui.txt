@@ -1,5 +1,5 @@
 ANDROID 
-	5lab,9lab, 1kolis,2kolis
+	5lab,9lab
 
 Informatikos teise
 
@@ -13,6 +13,4 @@ Informacijos teorja
 
 	4 laborai
 
-Duomenu baze!!!!!!!
-
-	9 laborai, 2 uzduotys, referatas prezentacija
+	

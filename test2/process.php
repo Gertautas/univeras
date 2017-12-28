@@ -17,12 +17,12 @@ $result = mysqli_query($con,"select * from users where username = '$username' an
         or die("Failed to quesry database".mysql_error());
 $row=mysqli_fetch_array($result);
 if($row['username']==$username && $row['password'] == $password && $row['statusas']=='vartotojas'){
-    header('Location: vartotojas.html');
+    header('Location: mainas.html');
 }else if($row['username']==$username && $row['password'] == $password && $row['adminas']==''){
     header('Location: admin.html');
 }
 else if($row['username']=='' && $row['password']== ''){
-    header('Location: error.html');
+    header('Location: error2.html');
 }
 
 ?>

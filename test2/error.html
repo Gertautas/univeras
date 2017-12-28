@@ -16,22 +16,28 @@
 <!-- //web font -->
 </head>
 <body>
-<!--mian-content-->
+    <script src="js/jquery-3.2.1.min.js"></script>
+<script src="email.js"></script>
 <h1>Error Page</h1>
 	<div class="main-wthree">
 		<h2>404</h2>
 		<p><span class="sub-agileinfo">Sorry! </span>The page you requested was not found!....</p>
 		<!--form-->
-			<form class="newsletter" id="newsletter" action="" method="post">
+			<form class="newsletter" id="emailas"  method="post">
 				<input class="email" id="email" type="email" placeholder="Your email..." required=" ">
-				<input type="submit" id="submit" class="submit" value="">
+				<!-- <input type="submit" id="submit" class="submit" value=""> -->
+			<button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Patvirtinti</button>
+			<div id="msgSubmit" class="h3 text-center hidden"></div>
+			<div class="clearfix"></div>
 			</form>
 
 		<!--//form-->
 	</div>
 <!--//mian-content-->
 </body>
-<script type="text/javascript" src="js/email.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="email.js"></script>
+<!-- <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script> -->
+<script type="text/javascript" src="js/validator.min.js"></script>
 
 </html>
